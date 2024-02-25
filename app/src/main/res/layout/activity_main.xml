@@ -16,15 +16,15 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingLeft="-60dp"
-        android:paddingRight="-90dp">
+        android:paddingLeft="-25dp"
+        android:paddingRight="-30dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/food2"
+            app:srcCompat="@drawable/background"
             tools:layout_editor_absoluteX="0dp" />
     </LinearLayout>
 
@@ -44,7 +44,6 @@
             android:layout_height="64dp"
             android:background="@drawable/custom_button_1"
             android:fontFamily="@font/comfortaa"
-            android:stateListAnimator="@null"
             android:text="Accedi"
             android:textColor="@color/white"
             android:textSize="20dp" />
@@ -56,7 +55,6 @@
             android:layout_marginLeft="6dp"
             android:background="@drawable/custom_button_1"
             android:fontFamily="@font/comfortaa"
-            android:stateListAnimator="@null"
             android:text="Registrati"
             android:textColor="@color/white"
             android:textSize="20dp" />
@@ -71,7 +69,7 @@
         android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:paddingBottom="555dp">
+        android:paddingBottom="630dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

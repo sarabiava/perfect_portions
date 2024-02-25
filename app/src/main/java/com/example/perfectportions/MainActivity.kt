@@ -11,11 +11,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Passare alla schermata "Accedi"
         val accedi = findViewById<Button>(R.id.Accedi)
         accedi.setOnClickListener {
-            //Intent per passare alla schermata "Accedi"
-            val intent = Intent(this, Accedi::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, Accedi::class.java))
+        }
+
+        // Passare alla schermata "Registrati"
+        val registrati = findViewById<Button>(R.id.Registrati)
+        registrati.setOnClickListener {
+            startActivity(Intent(this, Registrati::class.java))
         }
     }
 }
