@@ -22,7 +22,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Accedi" >
+            android:name=".Accedi"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".Registrati"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
         <meta-data
             android:name="preloaded_fonts"
