@@ -8,17 +8,27 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.textfield.TextInputEditText
 
 class Registrati : AppCompatActivity() {
-    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.registrati)
 
+        setupOnBackPressed()
+        setupOnAvantiPressed()
+    }
+
+    /**
+     * Ritorno alla schermata iniziale quando viene premuta la freccia "indietro".
+     */
+    private fun setupOnBackPressed() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
+
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val callback = object : OnBackPressedCallback(true) {
@@ -27,34 +37,52 @@ class Registrati : AppCompatActivity() {
             }
         }
         onBackPressedDispatcher.addCallback(this, callback)
-
-        // Riferimento alla radice del layout
-        val rootView = findViewById<View>(android.R.id.content)
-        // Aggiunta di un listener per osservare il cambiamento nella gerarchia della vista
-        rootView.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                // Nasconde la tastiera quando la vista viene toccata
-                rootView.setOnTouchListener { v, event ->
-                    hideKeyboard(v)
-                    false
-                }
-                // Rimozione listener una volta che è stato utilizzato
-                rootView.viewTreeObserver.removeOnGlobalLayoutListener(this)
-            }
-        })
     }
 
+    /**
+     * Gestisce il clic sulla freccia indietro nella toolbar.
+     */
     override fun onSupportNavigateUp(): Boolean {
-        // Gestisce il clic sulla freccia indietro nella toolbar
         startActivity(Intent(this@Registrati, MainActivity::class.java))
         return true
     }
 
-    private fun hideKeyboard(view: View) {
-        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    /**
+     * Effettua la registrazione e l'inserimento dell'utente nel database con i dati forniti nei campi di input.
+     */
+    private fun setupOnAvantiPressed() {
+
+        val avanti = findViewById<Button>(R.id.Avanti)
+        avanti.setOnClickListener {
+
+            // Recupera i dati di registrazione inseriti dall'utente
+            val username = findViewById<TextInputEditText>(R.id.username).text.toString()
+            val email = findViewById<TextInputEditText>(R.id.email).text.toString()
+            val password = findViewById<TextInputEditText>(R.id.password).text.toString()
+
+            if(username.isEmpty() || email.isEmpty() || password.isEmpty()){
+                Message(this, "Completa tutti i campi")
+            }
+            else {
+                // Creazione di un oggetto Utente
+                val newUser = Utente(username = username, email = email, password = password)
+
+                val dbHelper = DBHelper(this)
+
+                // Inserimento del nuovo utente nel database
+                val newRow = dbHelper.insertUser(newUser)
+                if (newRow != -1L) {
+                    // Inserimento riuscito
+                } else {
+                    // Inserimento non riuscito
+                }
+            }
+        }
     }
 
+    /**
+     * Nasconde la tastiera, quando aperta, nel momento in cui si tocca un qualsiasi punto della schermata che non contiene un campo di input.
+     */
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         currentFocus?.let { focus ->
             val x = ev?.x?.toInt() ?: 0
