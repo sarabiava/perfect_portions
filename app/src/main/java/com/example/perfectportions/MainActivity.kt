@@ -11,13 +11,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Passare alla schermata "Accedi"
+        setupOnAccediPressed()
+        setupOnRegistratiPressed()
+    }
+
+    /**
+     * Porta alla schermata di accesso quando viene premuto il pulsante "Accedi".
+     */
+    private fun setupOnAccediPressed() {
         val accedi = findViewById<Button>(R.id.Accedi)
         accedi.setOnClickListener {
             startActivity(Intent(this, Accedi::class.java))
         }
+    }
 
-        // Passare alla schermata "Registrati"
+    /**
+     * Porta alla schermata di registrazione quando viene premuto il pulsante "Registrati".
+     */
+    private fun setupOnRegistratiPressed() {
         val registrati = findViewById<Button>(R.id.Registrati)
         registrati.setOnClickListener {
             startActivity(Intent(this, Registrati::class.java))
