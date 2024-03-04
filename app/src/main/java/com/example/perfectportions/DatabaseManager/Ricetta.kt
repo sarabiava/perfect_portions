@@ -1,4 +1,4 @@
-package com.example.perfectportions
+package com.example.perfectportions.DatabaseManager
 
 data class Ricetta (
     val id: Int = 0,

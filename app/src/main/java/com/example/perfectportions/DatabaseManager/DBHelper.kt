@@ -1,16 +1,16 @@
-package com.example.perfectportions
+package com.example.perfectportions.DatabaseManager
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.perfectportions.DBConstants.Companion.DB_NAME
-import com.example.perfectportions.DBConstants.Companion.DB_VERSION
-import com.example.perfectportions.DBConstants.Companion.Utente.COL_ID
-import com.example.perfectportions.DBConstants.Companion.Utente.TABLE_NAME
-import com.example.perfectportions.DBConstants.Companion.Utente.COL_USERNAME
-import com.example.perfectportions.DBConstants.Companion.Utente.COL_MAIL
-import com.example.perfectportions.DBConstants.Companion.Utente.COL_PASSWORD
+import com.example.perfectportions.DatabaseManager.DBConstants.Companion.DB_NAME
+import com.example.perfectportions.DatabaseManager.DBConstants.Companion.DB_VERSION
+import com.example.perfectportions.DatabaseManager.DBConstants.Companion.Utente.COL_ID
+import com.example.perfectportions.DatabaseManager.DBConstants.Companion.Utente.TABLE_NAME
+import com.example.perfectportions.DatabaseManager.DBConstants.Companion.Utente.COL_USERNAME
+import com.example.perfectportions.DatabaseManager.DBConstants.Companion.Utente.COL_MAIL
+import com.example.perfectportions.DatabaseManager.DBConstants.Companion.Utente.COL_PASSWORD
 
 class DBHelper(var context: Context) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {

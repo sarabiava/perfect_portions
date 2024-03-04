@@ -1,16 +1,15 @@
 package com.example.perfectportions
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.MotionEvent
-import android.view.View
-import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.example.perfectportions.DatabaseManager.DBHelper
+import com.example.perfectportions.DatabaseManager.Utente
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputEditText
 
@@ -33,7 +32,7 @@ class Registrati : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                startActivity(Intent(this@Registrati, MainActivity::class.java))
+                startActivity(Intent(this@Registrati, Logger::class.java))
             }
         }
         onBackPressedDispatcher.addCallback(this, callback)
@@ -43,7 +42,7 @@ class Registrati : AppCompatActivity() {
      * Gestisce il clic sulla freccia indietro nella toolbar.
      */
     override fun onSupportNavigateUp(): Boolean {
-        startActivity(Intent(this@Registrati, MainActivity::class.java))
+        startActivity(Intent(this@Registrati, Logger::class.java))
         return true
     }
 
@@ -77,6 +76,7 @@ class Registrati : AppCompatActivity() {
                     // Inserimento non riuscito
                 }
             }
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

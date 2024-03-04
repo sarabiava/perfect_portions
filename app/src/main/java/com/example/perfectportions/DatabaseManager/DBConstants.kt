@@ -1,4 +1,4 @@
-package com.example.perfectportions
+package com.example.perfectportions.DatabaseManager
 
 class DBConstants {
     companion object {

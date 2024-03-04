@@ -13,7 +13,7 @@
         android:theme="@style/Theme.PerfectPortions"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Logger"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +27,10 @@
         </activity>
         <activity
             android:name=".Registrati"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize" >
         </activity>
         <meta-data

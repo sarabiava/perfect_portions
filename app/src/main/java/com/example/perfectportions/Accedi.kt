@@ -6,6 +6,7 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ class Accedi : AppCompatActivity() {
 
         setupOnBackPressed()
         setupOnRegistratiPressed()
+        setupOnAvantiPressed()
     }
 
     /**
@@ -28,6 +30,13 @@ class Accedi : AppCompatActivity() {
         val clickableText = findViewById<TextView>(R.id.textView3)
         clickableText.setOnClickListener {
             startActivity(Intent(this, Registrati::class.java))
+        }
+    }
+
+    private fun setupOnAvantiPressed() {
+        val avanti = findViewById<Button>(R.id.Avanti)
+        avanti.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
@@ -41,7 +50,7 @@ class Accedi : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                startActivity(Intent(this@Accedi, MainActivity::class.java))
+                startActivity(Intent(this@Accedi, Logger::class.java))
             }
         }
         onBackPressedDispatcher.addCallback(this, callback)
@@ -52,7 +61,7 @@ class Accedi : AppCompatActivity() {
      */
     override fun onSupportNavigateUp(): Boolean {
         // Gestisce il clic sulla freccia indietro nella toolbar
-        startActivity(Intent(this@Accedi, MainActivity::class.java))
+        startActivity(Intent(this@Accedi, Logger::class.java))
         return true
     }
 
