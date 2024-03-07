@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -13,7 +14,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/otherwhite"
             app:title=" "
             app:navigationIconTint="@color/black"
             app:navigationIcon="?attr/homeAsUpIndicator"
@@ -23,11 +23,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:gravity="top|left"
+        android:paddingLeft="25dp"
         android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingTop="120dp">
+        android:paddingTop="90dp">
 
         <TextView
             android:id="@+id/textView"
@@ -38,30 +37,36 @@
             android:textSize="48sp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
+            android:paddingEnd="25dp"
             app:boxStrokeColor="@color/pink">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
-                android:layout_width="330dp"
+                android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:hint="email" />
+                android:hint="email"
+                android:inputType="textEmailAddress|textNoSuggestions"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
-            app:boxStrokeColor="@color/pink">
+            android:paddingEnd="25dp"
+            app:boxStrokeColor="@color/pink"
+            app:endIconMode="password_toggle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
-                android:layout_width="330dp"
+                android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:hint="password" />
+                android:hint="password"
+                android:inputType="textPassword" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -72,7 +77,7 @@
         android:layout_weight="1"
         android:gravity="top|center"
         android:orientation="horizontal"
-        android:paddingTop="320dp">
+        android:paddingTop="295dp">
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -94,23 +99,27 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="bottom|center"
-        android:orientation="vertical"
-        android:paddingBottom="30dp">
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp">
+
         <Button
             android:id="@+id/Avanti"
-            android:paddingTop="10dp"
-            android:layout_width="330dp"
-            android:layout_height="67dp"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.3"
             android:fontFamily="@font/comfortaa"
             android:text="Avanti"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="20dp"
-            android:textAlignment="center" />
+            android:textSize="20dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

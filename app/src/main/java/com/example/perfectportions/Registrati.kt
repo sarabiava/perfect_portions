@@ -60,7 +60,7 @@ class Registrati : AppCompatActivity() {
             val password = findViewById<TextInputEditText>(R.id.password).text.toString()
 
             if(username.isEmpty() || email.isEmpty() || password.isEmpty()){
-                Message(this, "Completa tutti i campi")
+                Message(this, "Completa tutti i campi").showToast()
             }
             else {
                 // Creazione di un oggetto Utente
@@ -71,12 +71,13 @@ class Registrati : AppCompatActivity() {
                 // Inserimento del nuovo utente nel database
                 val newRow = dbHelper.insertUser(newUser)
                 if (newRow != -1L) {
-                    // Inserimento riuscito
+                    Message(this, "Registrazione completata").showToast()
+                    startActivity(Intent(this, MainActivity::class.java))
                 } else {
-                    // Inserimento non riuscito
+                    Message(this, "Registrazione fallita").showToast()
+                    startActivity(Intent(this, Registrati::class.java))
                 }
             }
-            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

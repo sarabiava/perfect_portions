@@ -29,7 +29,11 @@ class DBHelper(var context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
         onCreate(db)
     }
 
-    fun insertUser(utente: Utente): Long {
+    override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        onUpgrade(db, oldVersion, newVersion)
+    }
+
+    fun insertUser(utente: Utente): Long? {
         val dbHelper = DBHelper(context)
         val db = dbHelper.writableDatabase
 
@@ -39,7 +43,7 @@ class DBHelper(var context: Context) : SQLiteOpenHelper(context, DB_NAME, null, 
             put(COL_PASSWORD, utente.password)
         }
 
-        val newRowId = db.insert(TABLE_NAME, null, values)
+        val newRowId = db?.insert(TABLE_NAME, null, values)
 
         db.close()
         return newRowId

@@ -16,16 +16,15 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingLeft="-25dp"
-        android:paddingRight="-30dp">
+        android:paddingLeft="-30dp"
+        android:paddingRight="-35dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/background"
-            tools:layout_editor_absoluteX="0dp" />
+            app:srcCompat="@drawable/background" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,8 +39,9 @@
 
         <Button
             android:id="@+id/Accedi"
-            android:layout_width="176dp"
-            android:layout_height="67dp"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.3"
             android:fontFamily="@font/comfortaa"
             android:text="Accedi"
             android:textColor="@color/white"
@@ -49,8 +49,9 @@
 
         <Button
             android:id="@+id/Registrati"
-            android:layout_width="176dp"
-            android:layout_height="67dp"
+            android:layout_width="0dp"
+            android:layout_height="65dp"
+            android:layout_weight="0.3"
             android:layout_marginLeft="6dp"
             android:fontFamily="@font/comfortaa"
             android:text="Registrati"
@@ -65,8 +66,6 @@
         android:layout_weight="1"
         android:gravity="bottom|center"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
         android:paddingBottom="630dp">
         <TextView
             android:layout_width="wrap_content"

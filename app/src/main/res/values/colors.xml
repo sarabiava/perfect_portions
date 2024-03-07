@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="otherwhite">#FDF6FE</color>
+    <color name="otherwhite">#FEFAFE</color>
     <color name="purple">#850178</color>
     <color name="pink">#A85C81</color>
     <color name="lightpink">#FFF1F8</color>
@@ -39,6 +39,7 @@
     <color name="md_theme_light_surfaceTint">#95416D</color>
     <color name="md_theme_light_outlineVariant">#D4C2C8</color>
     <color name="md_theme_light_scrim">#000000</color>
+
     <color name="md_theme_dark_primary">#FFAFD3</color>
     <color name="md_theme_dark_onPrimary">#5C113D</color>
     <color name="md_theme_dark_primaryContainer">#782954</color>
